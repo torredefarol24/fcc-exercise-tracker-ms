@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        FCC Exercise Tracker Microservice
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/flame.png" />
+</head>
+
+<body class="main-body">
+    <h1> FCC Exercise Tracker Microservice</h1>
+
+    <div class="mt36 half-width">
+        <h3> Create New User</h3>
+        <form action="/api/exercise/new-user" method="post">
+            <label> Username</label>
+            <input type="text" placeholder="username" class="form-input" required name="username" />
+            <button type="submit" class="submit-btn"> Submit </button>
+        </form>
+    </div>
+
+    <div class="mt36 half-width">
+        <h3> Add User Exercise</h3>
+        <form action="/api/exercise/add" method="post">
+            <label> User ID</label>
+            <input type="text" placeholder="userId" class="form-input" name="user_id" required />
+            <label> Description </label>
+            <input type="text" placeholder="Description" class="form-input" name="description" required />
+            <label> Duration (mins)</label>
+            <input type="number" placeholder="Duration" class="form-input" name="duration" required />
+            <label> Date </label>
+            <input type="date" placeholder="Date" class="form-input" name="date" />
+
+            <button type=" submit" class="submit-btn"> Submit </button>
+        </form>
+
+    </div>
+
+    <div class="mt36 half-width">
+        <h3> View User Exercise Details</h3>
+        <label> User ID</label>
+        <input type="text" placeholder="userId" class="form-input" required id="userIdInput" />
+        <p> Visit <a href="/api/exercise/log/" id="exc_log_anc">Show Exercise Log</a></p>
+    </div>
+
+
+    <p class="mt36"> Created By: <span class="my-name">BurningRaven06</span>
+        for FCC-API-Microservice</p>
+    
+    <script type="text/javascript">
+        document.getElementById("userIdInput").addEventListener("change", function(){
+            var currentHref = document.getElementById("exc_log_anc").getAttribute("href")
+            var newHref = currentHref + document.getElementById("userIdInput").value
+            document.getElementById("exc_log_anc").setAttribute("href", newHref)
+            
+        })
+    </script>
+</body>
+
+</html>
